@@ -59,18 +59,21 @@ module PrimeTable
   def self.print_multiplication_table(primes)
     n = primes.length
 
+    # Calculate the max width of each cell in the table
+    max_width = (primes.last**2).to_s.length
+
     # Print header
-    puts "   | #{primes.join(" | ")}"
+    puts (" " * (max_width + 1)) + "| " + primes.map { |p| p.to_s.rjust(max_width) }.join(" | ")
 
     # Print separator
-    puts "---+#{"---+" * (n - 1)}---"
+    puts "-" * (max_width + 1) + "+" + ("-" * (max_width + 1) + "-+") * n
 
     # Print multiplication table
     primes.each do |p1|
-      print "#{p1.to_s.rjust(2)} |"
+      print "#{p1.to_s.rjust(max_width)} |"
       primes.each do |p2|
         product = p1 * p2
-        print " #{product.to_s.rjust(2)} |"
+        print " #{product.to_s.rjust(max_width)} |"
       end
       puts
     end

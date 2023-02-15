@@ -3,7 +3,9 @@
 require "optparse"
 require_relative "prime_table/version"
 
+# This module receives an integer N and creates a multiplication table of N prime numbers
 module PrimeTable
+  # Invalid N error
   class Error < StandardError
     def message
       "N is not a positive whole number."
@@ -28,29 +30,28 @@ module PrimeTable
     end
 
     opt_parser.parse!(options)
-    return n
+    n
   end
 
-  def self.is_prime?(number)
+  def self.prime?(number)
     (2..Math.sqrt(number)).each do |j|
-      if number % j == 0
-        return false
-      end
+      return false if (number % j).zero?
     end
 
-    return true
+    true
   end
 
   # Creates a list of prime numbers using Sieve of Eratosthenes algorithm
   def self.generate_primes_list(length)
-    raise Error if !(length.kind_of? Integer) || length.negative?
+    raise Error if !(length.is_a? Integer) || length.negative?
+
     primes = []
     i = 2
     while primes.length < length
-      primes << i if is_prime?(i)
+      primes << i if prime?(i)
       i += 1
     end
 
-    return primes
+    primes
   end
 end

@@ -31,7 +31,23 @@ module PrimeTable
     return n
   end
 
+  # Creates a list of prime numbers using Sieve of Eratosthenes algorithm
   def self.generate_primes_list(length)
     raise Error if !(length.kind_of? Integer) || length.negative?
+    primes = []
+    i = 2
+    while primes.length < length
+      is_prime = true
+      (2..Math.sqrt(i)).each do |j|
+        if i % j == 0
+          is_prime = false
+          break
+        end
+      end
+      primes << i if is_prime
+      i += 1
+    end
+
+    return primes
   end
 end

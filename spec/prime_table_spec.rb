@@ -27,7 +27,13 @@ describe "PrimeTable" do
     end
 
     context "when receiving a positive integer n" do
-      xit "returns a list primes of length n"
+      it "returns a list primes of length n" do
+        length = 3
+        primes_list = PrimeTable.generate_primes_list(length)
+
+        expect(primes_list).to match_array [2, 3, 5]
+        expect(primes_list.length).to eq length
+      end
     end
   end
   xit "return a multiplication table of prime numbers"

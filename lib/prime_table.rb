@@ -4,7 +4,11 @@ require "optparse"
 require_relative "prime_table/version"
 
 module PrimeTable
-  class Error < StandardError; end
+  class Error < StandardError
+    def message
+      "N is not a positive whole number."
+    end
+  end
 
   # Define the options and parse the command line arguments
   def self.parse(options)
@@ -26,7 +30,8 @@ module PrimeTable
     opt_parser.parse!(options)
     return n
   end
-end
 
-options = PrimeTable.parse(ARGV)
-puts options
+  def self.generate_primes_list(length)
+    raise Error if !(length.kind_of? Integer) || length.negative?
+  end
+end

@@ -13,6 +13,20 @@ describe "PrimeTable" do
     end
   end
 
+  describe ".is_prime?" do
+    context "when number is not" do
+      it "returns false" do
+        expect(PrimeTable.is_prime?(12)).to be false
+      end
+    end
+
+    context "when number is prime" do
+      it "returns true" do
+        expect(PrimeTable.is_prime?(5)).to be true
+      end
+    end
+  end
+
   describe ".generate_primes_list" do
     context "when receiving a string parameter" do
       it "raises an error" do

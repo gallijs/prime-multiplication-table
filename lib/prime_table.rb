@@ -54,4 +54,25 @@ module PrimeTable
 
     primes
   end
+
+  # Prints a multiplication table given an array of integers
+  def self.print_multiplication_table(primes)
+    n = primes.length
+
+    # Print header
+    puts "   | #{primes.join(" | ")}"
+
+    # Print separator
+    puts "---+#{"---+" * (n - 1)}---"
+
+    # Print multiplication table
+    primes.each do |p1|
+      print "#{p1.to_s.rjust(2)} |"
+      primes.each do |p2|
+        product = p1 * p2
+        print " #{product.to_s.rjust(2)} |"
+      end
+      puts
+    end
+  end
 end

@@ -54,5 +54,20 @@ describe "PrimeTable" do
     end
   end
 
-  xit "return a multiplication table of prime numbers"
+  describe ".print_multiplication_table" do
+    let(:primes) { [2, 3, 5] }
+    let(:mtable) do
+      <<~MTABLE
+           | 2 | 3 | 5
+        ---+---+---+---
+         2 |  4 |  6 | 10 |
+         3 |  6 |  9 | 15 |
+         5 | 10 | 15 | 25 |
+      MTABLE
+    end
+
+    it "return a multiplication table of prime numbers" do
+      expect { PrimeTable.print_multiplication_table(primes) }.to output(mtable).to_stdout
+    end
+  end
 end

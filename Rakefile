@@ -7,7 +7,3 @@ RSpec::Core::RakeTask.new(:spec)
 RuboCop::RakeTask.new
 
 task default: %w[rubocop spec]
-
-task :run do
-  ruby "lib/prime_table.rb"
-end

@@ -1,37 +1,43 @@
-# PrimeTable
+# Prime Multiplication Table
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/prime_table`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This is a ruby script that prompts the user to enter a number.
+This number `n` is used to generate a list of prime numbers of the given length `n`.
+It then will present the user with a multiplication table created from this list of primes.
 
 ## Installation
-
-Install the gem and add to the application's Gemfile by executing:
-
-    $ bundle add prime_table
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install prime_table
+This script is written in ruby.
+- Install rbenv
+  https://github.com/rbenv/rbenv
+- Install correct ruby version
+  `rbenv install $(cat .ruby-version)`
+- Install gems
+  `bundle install`
 
 ## Usage
 
-TODO: Write usage instructions here
+Run `ruby lib/cli.rb` on your terminal
+```
+Usage: prime_table.rb [options]
+    -n N                             Number of primes to generate (default: 3)
+    -h, --help                       Prints this help
+```
 
-## Development
+## Test
+`bundle exec rspec`
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Also simply `rake` will run test and linter.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+## Thoughts and Improvement
+I'm overall pleased with the project. The PrimeTable is well documented and has some relavent and useful methods.
+Also all of the methods for the PrimeTable have some testing.
 
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/prime_table. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/prime_table/blob/main/CODE_OF_CONDUCT.md).
+Improvement possibilities:
+- More testing related to the parser and covering error cases there
+- There are faster algorithms for generating prime numbers such as Sieve of Atkin
+- Creating the multiplication table and the presentation of it could be decoupled
+- Also for the `#print_multiplication_table` could be in a separate module form more generalized math problems. Since it could create a multiplication table for any array of integers not just primes.
+- Create a nicer output for the table. The way the table is printed to the console is pretty crude. Could even generate a nice html file instead.
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the PrimeTable project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/prime_table/blob/main/CODE_OF_CONDUCT.md).
+The code is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

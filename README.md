@@ -28,14 +28,14 @@ Usage: prime_table.rb [options]
 Also simply `rake` will run test and linter.
 
 ## Thoughts and Improvement
-I'm overall pleased with the project. The PrimeTable is well documented and has some relavent and useful methods.
+I'm overall pleased with the project. The PrimeTable is well documented and has some relevant and useful methods.
 Also all of the methods for the PrimeTable have some testing.
 
 Improvement possibilities:
 - More testing related to the parser and covering error cases there
 - There are faster algorithms for generating prime numbers such as Sieve of Atkin
 - Creating the multiplication table and the presentation of it could be decoupled
-- Also for the `#print_multiplication_table` could be in a separate module form more generalized math problems. Since it could create a multiplication table for any array of integers not just primes.
+- Also for the `#print_multiplication_table` could be in a separate module for more generalized math problems. Since it could create a multiplication table for any array of integers not just primes.
 - Create a nicer output for the table. The way the table is printed to the console is pretty crude. Could even generate a nice html file instead.
 
 ## License
